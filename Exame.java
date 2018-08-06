@@ -1,22 +1,22 @@
 
 public class Exame {
-	private String paciente;
+	private Paciente paciente;
 	private String dataExame;
 	private double valor;
 	private String dataResultado;
 	
-	public Exame(String paciente, String dataExame, double valor, String dataResultado) {
+	public Exame(Paciente paciente, String dataExame, double valor, String dataResultado) {
 		this.paciente = paciente;
 		this.dataExame = dataExame;
 		this.valor = valor;
 		this.dataResultado = dataResultado;
 	}
 	
-	public String getPaciente() {
+	public Paciente getPaciente() {
 		return this.paciente;
 	}
 	
-	public void setPaciente(String paciente) {
+	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
 	
