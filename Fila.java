@@ -24,4 +24,11 @@ public class Fila {
 		}
 	}
 	
+	public void removerPacienteDaFila(Paciente paciente) {
+		for(Paciente p: this.pacientes) {
+			if(p.getNome().equalsIgnoreCase(paciente.getNome())) {
+				this.pacientes.remove(paciente);
+			}
+		}
+	}
 }
