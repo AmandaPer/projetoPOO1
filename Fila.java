@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 
+import br.ufpb.dcx.sisclinica.exceptions.FilaVaziaException;
+
+/**
+ * @author amanda.pereira   
+ */
+
 public class Fila {
 	private ArrayList<Paciente> pacientes;
 	
@@ -18,17 +24,28 @@ public class Fila {
 	
 	public void addPacienteNaFila(Paciente paciente) {
 		for(Paciente p: this.pacientes) {
-			if(p.getNome().equalsIgnoreCase(paciente.getNome())) {
+			if(!p.getCpf().equalsIgnoreCase(paciente.getCpf()) && !p.getTipoConsulta().equalsIgnoreCase(paciente.getTipoConsulta())) {
 				this.pacientes.add(paciente);
 			}
 		}
 	}
 	
+        @Deprecated
 	public void removerPacienteDaFila(Paciente paciente) {
 		for(Paciente p: this.pacientes) {
-			if(p.getNome().equalsIgnoreCase(paciente.getNome())) {
+			if(p.getNome().equalsIgnoreCase(paciente.getNome()) && p.getTipoConsulta().equalsIgnoreCase(paciente.getTipoConsulta())) {
 				this.pacientes.remove(paciente);
 			}
 		}
 	}
+        
+        public Paciente removerProximoDaFila() throws FilaVaziaException{
+            if(this.getPacientes().isEmpty()){
+                throw new FilaVaziaException("A fila está vazia!");
+            }
+            else{
+                return this.getPacientes().remove(0);
+            }
+        }
 }
+

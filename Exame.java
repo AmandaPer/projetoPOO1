@@ -1,3 +1,7 @@
+/**
+ * @author amanda.pereira   
+ */
+
 
 public class Exame {
 	private Paciente paciente;
